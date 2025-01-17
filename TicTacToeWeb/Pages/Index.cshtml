@@ -1,0 +1,12 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form asp-page="/Game/Index" asp-page-handler="Initialize">
+    <input type="number" name="size" value="3">
+    <button type="submit">Start</button>
+</form>
+
+

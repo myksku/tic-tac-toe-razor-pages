@@ -1,0 +1,55 @@
+﻿@page
+@using TicTacToeWeb.Model
+@model TicTacToeWeb.Pages.Game.IndexModel
+@{
+
+}
+
+@{
+    if (@Model.VM.Winner == null)
+    {
+
+        <div id="gameBoard">
+            <h1>Current player is: @Model.VM.CurrentPlayerValue</h1>
+            <div id="places">
+                @for (int i = 0; i < Model.VM.BoardSize; i++)
+                {
+                    <div class="places-row">
+                    @for (int j = 0; j < Model.VM.BoardSize; j++)
+                    {
+
+                        @* <a asp-page="/Game/Index" asp-route-coordinateX="@Model.VM.Coordinates[i,j].X"
+                            asp-route-coordinateY="@Model.VM.Coordinates[i,j].Y" asp-route-newValue="@Model.VM.CurrentPlayerValue">
+                            @Model.VM.Coordinates[i,j].Value
+                            </a> *@
+
+                        <form asp-page="/Game/Index">
+                            <button type="submit"> @Model.VM.Coordinates[i,j].Value</button>
+                            <input type="hidden" name="Input.X" value="@Model.VM.Coordinates[i,j].X">
+                            <input type="hidden" name="Input.Y" value="@Model.VM.Coordinates[i,j].Y">
+                            <input type="hidden" name="Input.Player" value="@Model.VM.CurrentPlayerValue">
+                        </form>
+                    }
+                    </div>
+                }
+            </div>
+            <form asp-page="/Game/Index" asp-page-handler="Initialize">
+                <input type="hidden" name="size" value=@Model.VM.BoardSize>
+                <button type="submit">Restart</button>
+            </form>
+        </div>
+    }
+    else
+    {
+        if (@Model.VM.Winner == 'd' || @Model.VM.Winner == 'D')
+        {
+            <h1>Its a Draw !!!</h1>
+        }
+        else
+        {
+            <h1>Player @Model.VM.Winner has won !!!</h1>
+        }
+
+    }
+
+}
