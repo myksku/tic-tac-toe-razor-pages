@@ -6,19 +6,6 @@ namespace TicTacToeWeb.Tests.Unit;
 
 public class BoardTests
 {
-    // // [Fact]
-    // // public void WinnerIsSet_AfterThreeXInARow()
-    // // {
-    // //     Board board = new Board();
-    // //     board.InitializeNew(3);
-    // //     Player p = new Player() { Tag = 'x' };
-
-    // //     board.Update(0, 0, p);
-    // //     board.Update(0, 1, p);
-    // //     board.Update(0, 2, p);
-
-    // //     Assert.IsEqual(board.Winner,p);
-    // // }
 
     [Fact]
     public void Constructor_BoardHasXYPropsInitialized()

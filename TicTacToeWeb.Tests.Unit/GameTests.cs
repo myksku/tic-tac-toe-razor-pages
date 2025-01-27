@@ -6,38 +6,26 @@ namespace TicTacToeWeb.Tests.Unit;
 public class GameTests
 {
     /*
-            TDD programavimo procesas:
-            Paruošti planą: sukurti dalį klasių diagramos kiekvienai programavimo iteracijai.
-            Parašykite testus sukurtoms klasėms.
-            Suprogramuoti klases.
-            Įvykdyti testus.
-
-                ~ 1 Setting of Winner:
-					1. Game's Winner prop is set after x win row(3) - done 
-					2. Game's Winner prop is set after after x win column(3) 
-					3. Game's Winner prop is set after after x win diagonal(3)
-					4. !!! Game returns draw in a certain condition, add a new 'win' check rule 'checkDraw' 
-				~ 2 Dynamic Board Size:
-                    0. Game.InitializeNew(2) returns exception if int size is less than 3
-					1. Board is set to 3x3 when Game is called with InitializeNew(3)
-					1. Board is set to 4x4 when Game is called with InitializeNew(4)
-					1. Board is set to 7x7 when Game is called with InitializeNew(7)
-					1. Board is set to 11x11 when Game is called with InitializeNew(11)
-				~ 3  Winner is set regardless of the size of the board
-                    2. Board size 3x3 test any x win
-                    2. Board size 4x4 test any x win
-                    2. Board size 7x7 test any x win
-                    2. Board size 11x11 test any x win
+        Requirements:
+        ~ 1 Setting of Winner:
+            1. Game's Winner prop is set after x win row(3) - done 
+            2. Game's Winner prop is set after after x win column(3) 
+            3. Game's Winner prop is set after after x win diagonal(3)
+            4. !!! Game returns draw in a certain condition, add a new 'win' check rule 'checkDraw' 
+        ~ 2 Dynamic Board Size:
+            0. Game.InitializeNew(2) returns exception if int size is less than 3
+            1. Board is set to 3x3 when Game is called with InitializeNew(3)
+            1. Board is set to 4x4 when Game is called with InitializeNew(4)
+            1. Board is set to 7x7 when Game is called with InitializeNew(7)
+            1. Board is set to 11x11 when Game is called with InitializeNew(11)
+        ~ 3  Winner is set regardless of the size of the board
+            2. Board size 3x3 test any x win
+            2. Board size 4x4 test any x win
+            2. Board size 7x7 test any x win
+            2. Board size 11x11 test any x win
     */
 
-    // [Setup]
-    // public void InitializeNew3x3Game() {
-    //     Game game = new Game();
 
-    //     string[] playerTags = new string[] {'x','y'};
-
-    //     game.InitializeNew(3,playerTags);
-    // }
 
     [Fact]
     public void InitializeNew_WhenCalledMoreThanOnce_InitializedToTheLatestCall()
@@ -484,7 +472,7 @@ public class GameTests
         Assert.Null(game.Winner);
     }
 
-    
+
 
 
 }

@@ -9,30 +9,6 @@ namespace TicTacToeWeb
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.WebHost.ConfigureKestrel(opts =>
-            {
-                
-                opts.ConfigureHttpsDefaults(cOpts =>
-                {
-                    string certificateName = "agurkufabrikas";
-                    X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-                    store.Open(OpenFlags.ReadOnly);
-                    X509Certificate2 certificate = null;
-                    foreach (var cert in store.Certificates)
-                    {
-                        if (cert.Subject.Contains(certificateName))
-                            certificate = cert;
-                    }
-                    if (certificate == null)
-                    {
-                        throw new InvalidOperationException($"Server certificate: '{certificateName}' wasn't found");
-                    }
-                    cOpts.ServerCertificate = certificate;
-                    store.Close();
-                });
-            });
-
-
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddSingleton<IGameService,GameService>();
